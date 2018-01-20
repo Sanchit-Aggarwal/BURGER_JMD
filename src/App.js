@@ -8,25 +8,54 @@ class Addon extends Component
   constructor(props)
   {
     super(props);
+    this.state={items:[],cost:0};
   }
   render()
   {
+    // var newState={items:[],cost:0};
+    // newState.items.push(this.props.item);
+    // newState.cost++;
+    // console.log(newState);
+    // this.setState(newState);
+    this.state.items.push(this.props.item);
 
-    return(
+          return(
       <div>
+           {
+                     this.state.items.map(
+                                              function (t)
+                                              {
+                                                let img="/images/"+t+'.jpg'+"";console.log(img);
+                                                return(<div><img src={img} /><br /></div>);
+                                              }
+                                          )
 
-                      <h1>I am an addon</h1>
+
+           }
+
       </div>
 
     );
   }
 }
+function addItem(name)
+{
 
+  ReactDOM.render(<Addon item={name} />,document.getElementById('addON'));
+}
 class App extends Component {
+
   addPatty()
   {
-    alert();
-    ReactDOM.render(<Addon />,document.getElementById('addON'));
+    addItem('Patty');
+  }
+  addOnion()
+  {
+    addItem('Onion');
+  }
+  addTomato()
+  {
+    addItem('Tomato');
   }
   render() {
 
@@ -53,12 +82,12 @@ class App extends Component {
           <br />
           <div className='item'>
             Onion : <input type='text' /> &nbsp;
-          <button type="button" className="btn btn-primary">ADD TO BURGER</button>
+          <button type="button" className="btn btn-primary" onClick={this.addOnion}>ADD TO BURGER</button>
           </div>
           <br />
           <div className='item'>
             Tomato  : <input type='text' /> &nbsp;
-          <button type="button" className="btn btn-primary">ADD TO BURGER`</button>
+          <button type="button" className="btn btn-primary" onClick={this.addTomato}>ADD TO BURGER`</button>
           </div>
         </div>
 
