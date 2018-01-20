@@ -26,7 +26,7 @@ class Addon extends Component
                                               function (t)
                                               {
                                                 let img="/images/"+t+'.jpg'+"";console.log(img);
-                                                return(<div><img src={img} /><br /></div>);
+                                                return(<div><img height='150' width='300' src={img} /><br /></div>);
                                               }
                                           )
 
