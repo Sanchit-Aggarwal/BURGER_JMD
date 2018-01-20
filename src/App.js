@@ -8,7 +8,7 @@ class Addon extends Component
   constructor(props)
   {
     super(props);
-    this.state={items:[{item:'',count:0}],cost:0};
+    this.state={items:[{item:'',count:[]}],cost:0};
   }
   render()
   {
@@ -19,49 +19,32 @@ class Addon extends Component
     // this.setState(newState);
 
     this.state.items[0].item=(this.props.item);
-    this.state.items[0].count=(this.props.count);
-    let toRender;let counter=0;
-    for(let i=1;i<=this.props.count;i++)
+    for(var i=0;i<this.props.count;i++)
     {
+      this.state.items[0].count.push(this.props.item);
+    }
 
 
-               this.state.items.map(
+return(<div>
+  {
+               this.state.items[0].count.map(
                                         function (t)
                                         {
-                                          if(counter===0)
-                                          {
-                                            counter++;
-                                            let img="/images/"+t.item+'.jpg'+"";
-                                            toRender=<div><img height='150' width='300' src={img} /><br /></div>;
+                                          let img="/images/"+t+'.jpg'+"";
+                                            return(<div><img height='150' width='300' src={img} /><br /></div>);
 
                                           }
-                                          else {
-                                            let img="/images/"+t.item+'.jpg'+"";
-                                            toRender+=<div><img height='150' width='300' src={img} /><br /></div>;
-                                          }
-                                          }
+                                        )
 
-                                    );
+  }</div>
 
 
-
-
-
+);
 
 
 }
-
-console.log(counter);
-
-
-
-
-
-
-          return(<div>{toRender}</div>);
-
-  }
 }
+
 function addItem(name,count)
 {
 
