@@ -1,0 +1,14 @@
+.header
+{
+  display: flex;
+  background-color: #ef8823;
+}
+.title h1
+{
+  color: white
+
+}
+.item button
+{
+  background-color: #ef8823;
+}
