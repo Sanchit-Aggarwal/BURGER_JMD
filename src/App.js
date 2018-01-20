@@ -17,9 +17,10 @@ class Addon extends Component
     // newState.cost++;
     // console.log(newState);
     // this.setState(newState);
+
     this.state.items[0].item=(this.props.item);
     this.state.items[0].count=(this.props.count);
-    let toRender;
+    let toRender;let counter=0;
     for(let i=1;i<=this.props.count;i++)
     {
 
@@ -27,9 +28,19 @@ class Addon extends Component
                this.state.items.map(
                                         function (t)
                                         {
-                                          let img="/images/"+t.item+'.jpg'+"";console.log(img);
-                                          toRender+=(<div><img height='150' width='300' src={img} /><br /></div>);
-                                        }
+                                          if(counter===0)
+                                          {
+                                            counter++;
+                                            let img="/images/"+t.item+'.jpg'+"";
+                                            toRender=<div><img height='150' width='300' src={img} /><br /></div>;
+
+                                          }
+                                          else {
+                                            let img="/images/"+t.item+'.jpg'+"";
+                                            toRender+=<div><img height='150' width='300' src={img} /><br /></div>;
+                                          }
+                                          }
+
                                     );
 
 
@@ -40,7 +51,7 @@ class Addon extends Component
 
 }
 
-
+console.log(counter);
 
 
 
@@ -60,15 +71,15 @@ class App extends Component {
 
   addPatty()
   {
-    addItem('Patty',document.getElementsByClassName('Patty').value);
+    addItem('Patty',document.getElementById('Patty').value);
   }
   addOnion()
   {
-    addItem('Onion',document.getElementsByClassName('Onion').value);
+    addItem('Onion',document.getElementById('Onion').value);
   }
   addTomato()
   {
-    addItem('Tomato',document.getElementsByClassName('Tomato').value);
+    addItem('Tomato',document.getElementById('Tomato').value);
   }
   render() {
 
@@ -89,17 +100,17 @@ class App extends Component {
         </div>
         <div className='adder jumbotron'>
           <div className='item'>
-            Patty : <input type='text' /> &nbsp;
-          <button type="button" className="btn btn-primary Patty" onClick={this.addPatty}>ADD TO BURGER</button>
+            Patty : <input type='text' id='Patty' /> &nbsp;
+          <button type="button" className="btn btn-primary" onClick={this.addPatty}>ADD TO BURGER</button>
           </div>
           <br />
           <div className='item'>
-            Onion : <input type='text' /> &nbsp;
+            Onion : <input type='text' id='Onion'/> &nbsp;
           <button type="button" className="btn btn-primary Onion" onClick={this.addOnion}>ADD TO BURGER</button>
           </div>
           <br />
           <div className='item'>
-            Tomato  : <input type='text' /> &nbsp;
+            Tomato  : <input type='text' id='Tomato'/> &nbsp;
           <button type="button" className="btn btn-primary Tomato" onClick={this.addTomato}>ADD TO BURGER`</button>
           </div>
         </div>
