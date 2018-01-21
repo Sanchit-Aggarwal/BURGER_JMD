@@ -8,7 +8,7 @@ class Addon extends Component
   constructor(props)
   {
     super(props);
-    this.state={items:[{item:'',count:[]}],cost:0};
+    this.state={items:[],cost:0};
   }
   render()
   {
@@ -18,20 +18,35 @@ class Addon extends Component
     // console.log(newState);
     // this.setState(newState);
 
-    this.state.items[0].item=(this.props.item);
-    for(var i=0;i<this.props.count;i++)
+    //this.state.items.push(this.props.item);
+    if(this.props.flag===-1)
     {
-      this.state.items[0].count.push(this.props.item);
+         for(let i=this.state.items.length-1;i>=0;i--)
+         {
+           if(this.state.items[i]===this.props.item)
+           {
+             this.state.items[i]='';
+             break;
+           }
+         }
     }
+    else {
+      this.state.items.push(this.props.item);
+
+    }
+
 
 
 return(<div>
   {
-               this.state.items[0].count.map(
+               this.state.items.map(
                                         function (t)
                                         {
-                                          let img="/images/"+t+'.jpg'+"";
-                                            return(<div><img height='150' width='300' src={img} /><br /></div>);
+                                            if(t!=='')
+                                            {
+                                            let img="/images/"+t+'.jpg'+"";
+                                            return(<div><img height='80' width='300' src={img} /><br /></div>);
+                                          }
 
                                           }
                                         )
@@ -45,10 +60,10 @@ return(<div>
 }
 }
 
-function addItem(name,count)
+function addItem(name,flag)
 {
 
-  ReactDOM.render(<Addon item={name} count={count} />,document.getElementById('addON'));
+  ReactDOM.render(<Addon item={name} flag={flag} />,document.getElementById('addON'));
 }
 class App extends Component {
 
@@ -61,6 +76,12 @@ class App extends Component {
     document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)+1;
     addItem('Patty',1);
   }
+  removePatty()
+  {
+
+    addItem('Patty',-1);
+    document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)-1;
+  }
   addOnion()
   {
     if(!document.getElementById('Onion').value)
@@ -70,6 +91,12 @@ class App extends Component {
     document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)+1;
     addItem('Onion',1);
   }
+  removeOnion()
+  {
+
+    addItem('Onion',-1);
+    document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)-1;
+  }
   addTomato()
   {
     if(!document.getElementById('Tomato').value)
@@ -78,6 +105,12 @@ class App extends Component {
     }
     document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)+1;
     addItem('Tomato',1);
+  }
+  removeTomato()
+  {
+
+    addItem('Tomato',-1);
+    document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)-1;
   }
   render() {
 
@@ -91,26 +124,26 @@ class App extends Component {
 
             <div className='adder jumbotron'>
                     <div className='item'>
-                        Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' disabled/><button type="button" onclick=''>-</button>
+                        Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' disabled/><button type="button" onClick={this.removePatty}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                        Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' disabled/><button type="button" onclick=''>-</button>
+                        Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' disabled/><button type="button" onClick={this.removeOnion}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' disabled/><button type="button" onclick=''>-</button>
+                Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' disabled/><button type="button" onClick={this.removeTomato}>-</button>
                     </div>
 
           </div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
           <div className='Burger-Preview'>
-                 <img src='/images/top-bun.png' height='150' width='300'/><br />
+                 <img src='/images/top-bun.png' height='80' width='300'/><br />
                  <div id='addON'>
 
 
                  </div>
-                 <img src='/images/bottom-bun.jpg' />
+                 <img src='/images/bottom-bun.jpg' height='80' width='300' />
 
           </div>
 
