@@ -54,30 +54,15 @@ class App extends Component {
 
   addPatty()
   {
-    if(!document.getElementById('Patty').value)
-    {
-      document.getElementById('Patty').value=0;
-    }
-    document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)+1;
-    addItem('Patty',1);
+    addItem('Patty',document.getElementById('Patty').value);
   }
   addOnion()
   {
-    if(!document.getElementById('Onion').value)
-    {
-      document.getElementById('Onion').value=0;
-    }
-    document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)+1;
-    addItem('Onion',1);
+    addItem('Onion',document.getElementById('Onion').value);
   }
   addTomato()
   {
-    if(!document.getElementById('Tomato').value)
-    {
-      document.getElementById('Tomato').value=0;
-    }
-    document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)+1;
-    addItem('Tomato',1);
+    addItem('Tomato',document.getElementById('Tomato').value);
   }
   render() {
 
@@ -98,21 +83,19 @@ class App extends Component {
         </div>
         <div className='adder jumbotron'>
           <div className='item'>
-                Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' disabled/><button type="button" onclick=''>-</button>
+            Patty : <input type='text' id='Patty' /> &nbsp;
+          <button type="button" className="btn btn-primary" onClick={this.addPatty}>ADD TO BURGER</button>
           </div>
-          <br />
-            <div className='item'>
-                  Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' disabled/><button type="button" onclick=''>-</button>
-            </div>
           <br />
           <div className='item'>
-                Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' disabled/><button type="button" onclick=''>-</button>
+            Onion : <input type='text' id='Onion'/> &nbsp;
+          <button type="button" className="btn btn-primary Onion" onClick={this.addOnion}>ADD TO BURGER</button>
           </div>
-
-
-
-
-
+          <br />
+          <div className='item'>
+            Tomato  : <input type='text' id='Tomato'/> &nbsp;
+          <button type="button" className="btn btn-primary Tomato" onClick={this.addTomato}>ADD TO BURGER`</button>
+          </div>
         </div>
 
       </div>
