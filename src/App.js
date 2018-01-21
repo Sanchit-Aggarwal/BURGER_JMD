@@ -97,7 +97,7 @@ class App extends Component {
       document.getElementById('Onion').value=0;
     }
     document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)+1;
-    document.getElementById('total').value= parseInt(document.getElementById('total').value)+100;
+    document.getElementById('total').value= parseInt(document.getElementById('total').value)+10;
     addItem('Onion',1);
   }
   removeOnion()
