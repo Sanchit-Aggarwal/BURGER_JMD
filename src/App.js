@@ -87,31 +87,32 @@ class App extends Component {
             <div className='logo col-md-3'>LOGO WILL COME HERE</div>
             <div className='title col-md-7'><h1>Mata Vaishno Burger point</h1></div>
         </div>
-        <div className='Burger-Preview'>
-               <img src='/images/top-bun.png' height='150' width='300'/><br />
-               <div id='addON'>
+        <div className='flexer'>
 
-
-               </div>
-               <img src='/images/bottom-bun.jpg' />
-
-        </div>
-        <div className='adder jumbotron'>
-          <div className='item'>
-                Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' disabled/><button type="button" onclick=''>-</button>
-          </div>
-          <br />
-            <div className='item'>
-                  Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' disabled/><button type="button" onclick=''>-</button>
-            </div>
-          <br />
-          <div className='item'>
+            <div className='adder jumbotron'>
+                    <div className='item'>
+                        Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' disabled/><button type="button" onclick=''>-</button>
+                    </div>
+                    <br />
+                    <div className='item'>
+                        Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' disabled/><button type="button" onclick=''>-</button>
+                    </div>
+                    <br />
+                    <div className='item'>
                 Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' disabled/><button type="button" onclick=''>-</button>
+                    </div>
+
           </div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <div className='Burger-Preview'>
+                 <img src='/images/top-bun.png' height='150' width='300'/><br />
+                 <div id='addON'>
 
 
+                 </div>
+                 <img src='/images/bottom-bun.jpg' />
 
-
+          </div>
 
         </div>
 
