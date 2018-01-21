@@ -78,9 +78,14 @@ class App extends Component {
   }
   removePatty()
   {
-
-    addItem('Patty',-1);
-    document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)-1;
+    if(document.getElementById('Patty').value==='0')
+    {
+      alert("First add some crispy Patty :)")
+    }
+    else {
+      addItem('Patty',-1);
+      document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)-1;
+    }
   }
   addOnion()
   {
@@ -94,8 +99,16 @@ class App extends Component {
   removeOnion()
   {
 
-    addItem('Onion',-1);
-    document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)-1;
+    if(document.getElementById('Onion').value==='0')
+    {
+      alert("First add some fresh Onion :)")
+    }
+    else
+    {
+      addItem('Onion',-1);
+      document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)-1;
+    }
+
   }
   addTomato()
   {
@@ -109,8 +122,16 @@ class App extends Component {
   removeTomato()
   {
 
-    addItem('Tomato',-1);
-    document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)-1;
+    if(document.getElementById('Tomato').value==='0')
+    {
+      alert("First add some juicy Tomatoes :)")
+    }
+    else
+     {
+       addItem('Tomato',-1);
+       document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)-1;
+    }
+
   }
   render() {
 
@@ -124,15 +145,15 @@ class App extends Component {
 
             <div className='adder jumbotron'>
                     <div className='item'>
-                        Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' disabled/><button type="button" onClick={this.removePatty}>-</button>
+                        Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' value='0' align='center' disabled/><button type="button" onClick={this.removePatty}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                        Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' disabled/><button type="button" onClick={this.removeOnion}>-</button>
+                        Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' value='0' disabled/><button type="button" onClick={this.removeOnion}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' disabled/><button type="button" onClick={this.removeTomato}>-</button>
+                Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' value='0' disabled/><button type="button" onClick={this.removeTomato}>-</button>
                     </div>
 
           </div>
