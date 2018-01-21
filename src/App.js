@@ -74,6 +74,8 @@ class App extends Component {
       document.getElementById('Patty').value=0;
     }
     document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)+1;
+    document.getElementById('total').value= parseInt(document.getElementById('total').value)+25;
+
     addItem('Patty',1);
   }
   removePatty()
@@ -85,6 +87,7 @@ class App extends Component {
     else {
       addItem('Patty',-1);
       document.getElementById('Patty').value=parseInt(document.getElementById('Patty').value)-1;
+      document.getElementById('total').value= parseInt(document.getElementById('total').value)-25;
     }
   }
   addOnion()
@@ -94,6 +97,7 @@ class App extends Component {
       document.getElementById('Onion').value=0;
     }
     document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)+1;
+    document.getElementById('total').value= parseInt(document.getElementById('total').value)+10;
     addItem('Onion',1);
   }
   removeOnion()
@@ -107,6 +111,8 @@ class App extends Component {
     {
       addItem('Onion',-1);
       document.getElementById('Onion').value=parseInt(document.getElementById('Onion').value)-1;
+      document.getElementById('total').value= parseInt(document.getElementById('total').value)-10;
+
     }
 
   }
@@ -117,6 +123,8 @@ class App extends Component {
       document.getElementById('Tomato').value=0;
     }
     document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)+1;
+    document.getElementById('total').value= parseInt(document.getElementById('total').value)+10;
+
     addItem('Tomato',1);
   }
   removeTomato()
@@ -130,6 +138,8 @@ class App extends Component {
      {
        addItem('Tomato',-1);
        document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)-1;
+       document.getElementById('total').value= parseInt(document.getElementById('total').value)-10;
+
     }
 
   }
@@ -138,23 +148,26 @@ class App extends Component {
     return (
       <div className="App">
         <div className='header'>
-            <div className='logo col-md-3'>LOGO WILL COME HERE</div>
+            <div className='logo col-md-3'><img src="/images/logo.png" height='50' width='50'/></div>
             <div className='title col-md-7'><h1>Mata Vaishno Burger point</h1></div>
         </div>
         <div className='flexer'>
 
             <div className='adder jumbotron'>
                     <div className='item'>
-                        Patty  :    <button type="button" class='btn' onClick={this.addPatty}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Patty' value='0' align='center' disabled/><button class='btn'type="button" onClick={this.removePatty}>-</button>
+                        Patty (₹ 25/-) :    <button type="button" class='btn' onClick={this.addPatty}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Patty' value='0' align='center' disabled/><button class='btn'type="button" onClick={this.removePatty}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                        Onion  :    <button type="button" class='btn' onClick={this.addOnion}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Onion' value='0' disabled/><button class='btn' type="button" onClick={this.removeOnion}>-</button>
+                        Onion (₹ 10/-) :    <button type="button" class='btn' onClick={this.addOnion}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Onion' value='0' disabled/><button class='btn' type="button" onClick={this.removeOnion}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                Tomato  : <button type="button" class='btn' onClick={this.addTomato}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Tomato' value='0' disabled/><button class='btn' type="button" onClick={this.removeTomato}>-</button>
+                Tomato (₹ 10/-) : <button type="button" class='btn' onClick={this.addTomato}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Tomato' value='0' disabled/><button class='btn' type="button" onClick={this.removeTomato}>-</button>
                     </div>
+                    <br />
+                    TOTAL:₹  <input type='text' id='total' value='20' disabled/>
+                  <span id="makeOrange"><button type="button" class='btn' onClick=''>Checkout</button></span>
 
           </div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -167,6 +180,7 @@ class App extends Component {
                  <img src='/images/bottom-bun.jpg' height='80' width='300' />
 
           </div>
+          <div><img src="/images/welcome.png" /></div>
 
         </div>
 
