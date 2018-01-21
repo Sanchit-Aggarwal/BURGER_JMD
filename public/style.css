@@ -16,3 +16,8 @@
 {
   display:flex;
 }
+input[type="text"] {
+    width: 30px;
+    border: 0px;
+    color: #ef8823
+}

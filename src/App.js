@@ -145,15 +145,15 @@ class App extends Component {
 
             <div className='adder jumbotron'>
                     <div className='item'>
-                        Patty  : <button type="button" onClick={this.addPatty}>+</button><input type="text" id='Patty' value='0' align='center' disabled/><button type="button" onClick={this.removePatty}>-</button>
+                        Patty  :    <button type="button" class='btn' onClick={this.addPatty}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Patty' value='0' align='center' disabled/><button class='btn'type="button" onClick={this.removePatty}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                        Onion  : <button type="button" onClick={this.addOnion}>+</button><input type="text" id='Onion' value='0' disabled/><button type="button" onClick={this.removeOnion}>-</button>
+                        Onion  :    <button type="button" class='btn' onClick={this.addOnion}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Onion' value='0' disabled/><button class='btn' type="button" onClick={this.removeOnion}>-</button>
                     </div>
                     <br />
                     <div className='item'>
-                Tomato  : <button type="button" onClick={this.addTomato}>+</button><input type="text" id='Tomato' value='0' disabled/><button type="button" onClick={this.removeTomato}>-</button>
+                Tomato  : <button type="button" class='btn' onClick={this.addTomato}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='Tomato' value='0' disabled/><button class='btn' type="button" onClick={this.removeTomato}>-</button>
                     </div>
 
           </div>
