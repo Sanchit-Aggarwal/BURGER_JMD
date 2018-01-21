@@ -127,7 +127,7 @@ class App extends Component {
 
     addItem('Tomato',1);
   }
-  removeTomato()
+    removeTomato()
   {
 
     if(document.getElementById('Tomato').value==='0')
@@ -140,6 +140,17 @@ class App extends Component {
        document.getElementById('Tomato').value=parseInt(document.getElementById('Tomato').value)-1;
        document.getElementById('total').value= parseInt(document.getElementById('total').value)-10;
 
+    }
+
+  }
+  checkout()
+  {
+    if(document.getElementById('total').value=='20')
+    {
+      alert('Oh Oh,Empty burger looks bad! Do add some ingredients :(');
+    }
+    else {
+      alert('Order Placed! Get Ready to Dig in!');
     }
 
   }
@@ -167,7 +178,7 @@ class App extends Component {
                     </div>
                     <br />
                     TOTAL:₹  <input type='text' id='total' value='20' disabled/>
-                  <span id="makeOrange"><button type="button" class='btn' onClick=''>Checkout</button></span>
+                  <span id="makeOrange"><button type="button" class='btn' onClick={this.checkout}>Checkout</button></span>
 
           </div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
