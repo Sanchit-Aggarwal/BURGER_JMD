@@ -44,7 +44,7 @@ return(<div>
                                         {
                                             if(t!=='')
                                             {
-                                            let img="/images/"+t+'.JPG'+"";
+                                            let img="public/images/"+t+'.JPG'+"";
                                             return(<div><img height='80' width='300' src={img} /><br /></div>);
                                           }
 
